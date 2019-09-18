@@ -9,7 +9,7 @@ texts = ["ひゃくまんぱわー", "バカP...", "子猫ちゃん"]
 
 def TweetAsBot():
     current = datetime.now() + timedelta(hours=9)
-    tweet = random.choice(texts) + " at " + current.strftime('%Y-%m-%d %X')
+    tweet = random.choice(texts) + " in " + current.strftime('%Y-%m-%d %X')
     myAPI.update_status(tweet)
 
 
