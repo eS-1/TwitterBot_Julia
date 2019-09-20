@@ -4,7 +4,7 @@ from datetime import timedelta
 import random
 
 
-texts = ["ひゃくまんぱわー", "バカP...", "子猫ちゃん"]
+texts = ["ひゃくまんぱわー", "バカP...", "子猫ちゃん", "シズ、言ってやりな"]
 
 
 def TweetAsBot():
