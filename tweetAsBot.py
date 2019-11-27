@@ -9,15 +9,16 @@ def TweetAsBot():
     with open("tweetTexts.txt", encoding="UTF-8") as f:
         texts = [s.strip() for s in f.readlines()]
 
-    tweet = random.choice(texts)
-
     i = 0
-    while i < 5:
+    text = random.choice(texts)
+    tweet = text + "(" + str(i) + ")"
+
+    while i < 100:
         try:
             myAPI.update_status(tweet)
         except tweepy.TweepError:
-            tweet = random.choice(texts)
             i += 1
+            tweet = text + "(" + str(i) + ")"
         else:
             break
 
