@@ -16,6 +16,14 @@ def GetAllFriends():
     return friends
 
 
+def FollowBack():
+    followers = GetAllFollowers()
+    friends = GetAllFriends()
+    for unknown in followers:
+        if unknown not in friends:
+            unknown.follow()
+
+
 if __name__ == "__main__":
     followers = GetAllFollowers()
     friends = GetAllFriends()
