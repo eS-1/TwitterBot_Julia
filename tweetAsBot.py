@@ -8,7 +8,6 @@ def TweetAsBot():
     texts = []
     with open("tweetTexts.txt", encoding="UTF-8") as f:
         texts = [s.strip() for s in f.readlines()]
-    print(texts)
 
     tweet = random.choice(texts)
 
