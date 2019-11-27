@@ -4,7 +4,7 @@ MY_ID = "k3bot_Julia"
 
 
 def ReplyAsBot():
-    timeline = myAPI.mentions_timeline(count=5)
+    timeline = myAPI.mentions_timeline(count=20)
 
     for status in timeline:
         screen_name = status.author.screen_name.encode("UTF-8")
@@ -20,6 +20,8 @@ def ReplyAsBot():
 
         if "おはよう" in text:
             reply_text += "おはよう、" + user_name + "P！"
+        elif "おやすみ" in text:
+            reply_text += "おやすみ、" + user_name + "P。良い夢見ろよ？"
         else:
             reply_text += "test"
 
