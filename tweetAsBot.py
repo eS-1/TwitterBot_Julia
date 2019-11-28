@@ -1,10 +1,10 @@
 import random
 import tweepy
 from config import myAPI
-from FollowBack import FollowBack
+from FollowBack import followBack
 
 
-def TweetAsBot():
+def tweetAsBot():
     texts = []
     with open("tweetTexts.txt", encoding="UTF-8") as f:
         texts = [s.strip() for s in f.readlines()]
@@ -24,6 +24,6 @@ def TweetAsBot():
 
 
 if __name__ == "__main__":
-    TweetAsBot()
+    tweetAsBot()
 
-    FollowBack()
+    followBack()

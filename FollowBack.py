@@ -2,31 +2,31 @@ from config import myAPI
 import tweepy
 
 
-def GetAllFollowers():
+def getAllFollowers():
     followers = list()
     for follower in tweepy.Cursor(myAPI.followers).items():
         followers.append(follower)
     return followers
 
 
-def GetAllFriends():
+def getAllFriends():
     friends = list()
     for friend in tweepy.Cursor(myAPI.friends).items():
         friends.append(friend)
     return friends
 
 
-def FollowBack():
-    followers = GetAllFollowers()
-    friends = GetAllFriends()
+def followBack():
+    followers = getAllFollowers()
+    friends = getAllFriends()
     for unknown in followers:
         if unknown not in friends:
             unknown.follow()
 
 
 if __name__ == "__main__":
-    followers = GetAllFollowers()
-    friends = GetAllFriends()
+    followers = getAllFollowers()
+    friends = getAllFriends()
     for unknown in followers:
         if unknown not in friends:
             unknown.follow()

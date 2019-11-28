@@ -1,12 +1,12 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-import ReplyAsBot
+import replyAsBot
 
 twische = BlockingScheduler()
 
 
 @twische.scheduled_job('interval', minutes=1)
 def timed_job():
-    ReplyAsBot.ReplyAsBot()
+    replyAsBot.replyAsBot()
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ from config import myAPI
 MY_ID = "k3bot_Julia"
 
 
-def ReplyAsBot():
+def replyAsBot():
     timeline = myAPI.mentions_timeline(count=20)
 
     for status in timeline:
@@ -35,4 +35,4 @@ def ReplyAsBot():
 
 
 if __name__ == "__main__":
-    ReplyAsBot()
+    replyAsBot()
