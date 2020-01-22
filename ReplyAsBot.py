@@ -23,6 +23,8 @@ def replyAsBot():
             reply_text += "おはよう、" + user_name + "P！"
         elif "おやすみ" in text:
             reply_text += "おやすみ、" + user_name + "P。良い夢見ろよ？"
+        elif "たすけて" in text:
+            reply_text += "どうした" + user_name + "P、何があったのさ？"
         else:
             reply_text += "test"
 
