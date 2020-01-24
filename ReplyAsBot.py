@@ -4,6 +4,9 @@ MY_ID = "k3bot_Julia"
 
 
 def replyAsBot():
+    '''
+    リプライ用の関数。
+    '''
     timeline = myAPI.mentions_timeline(count=20)
 
     for status in timeline:
