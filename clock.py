@@ -4,7 +4,7 @@ from replyAsBot import replyAsBot
 twische = BlockingScheduler()
 
 
-@twische.scheduled_job('interval', seconds=30)
+@twische.scheduled_job('interval', minutes=1)
 def timed_job():
     replyAsBot()
 
