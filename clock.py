@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from replyAsBot import replyAsBot
+from ReplyAsBot import replyAsBot
 
 twische = BlockingScheduler()
 
