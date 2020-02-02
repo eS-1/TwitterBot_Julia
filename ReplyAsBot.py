@@ -1,3 +1,4 @@
+import fortune
 from config import myAPI
 
 MY_ID = "k3bot_Julia"
@@ -30,6 +31,8 @@ def replyAsBot():
             reply_text += "どうした" + user_name + "P、何があったのさ？"
         elif "つらい" in text:
             reply_text += "大丈夫か？アタシがついてる、心配すんな"
+        elif "おみくじ" in text:
+            reply_text += fortune.draw_fortune()
         else:
             reply_text += "test"
 
