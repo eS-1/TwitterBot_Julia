@@ -1,6 +1,7 @@
 import json
 import requests
 import datetime
+from config import myAPI
 
 
 def find_next(link):
@@ -67,8 +68,15 @@ if __name__ == "__main__":
     total = 0
     c_today = 0
     for repo in count_user_commits(user):
-        print("Repo '%(name)s'\n  %(num_commits)d commits, size %(size)d." % repo)
         total += repo["num_commits"]
         c_today += repo["num_commits_today"]
     print("Total commits: {}".format(total))
     print("Today commits: {}".format(c_today))
+
+    tweet = "@eS1_tech 今日のcommitは{}回だ。".format(c_today)
+    if c_today == 0:
+        tweet += "とっとと済ませた方がいいんじゃないか？"
+    else:
+        tweet += "今日もお疲れ様。"
+
+    myAPI.update_status(tweet)
