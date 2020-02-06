@@ -30,7 +30,7 @@ def make_model(text, order=2):
     queue.append("[BOS]")
     for word in word_list:
         if len(queue) == order:
-            if queue[-1] == "." or queue[-1] == "。" or queue[-1] == "？" or \
+            if queue[-1] == "。" or queue[-1] == "？" or \
                queue[-1] == "♪" or queue[-1] == "！":
                 markov_key = tuple(queue)
                 if markov_key not in model:
@@ -45,7 +45,7 @@ def make_model(text, order=2):
     return model
 
 
-def make_markov_sentence(model, order=2, sentence_num=10, seed="[BOS]", max_words=140):
+def make_markov_sentence(model, order=2, sentence_num=10, max_words=140, seed="[BOS]"):
     make_count = 0
     key_candidates = [key for key in model if key[0] == seed]
     if not key_candidates:
@@ -60,7 +60,7 @@ def make_markov_sentence(model, order=2, sentence_num=10, seed="[BOS]", max_word
         next_word = random.choice(model[markov_key])
         sentence += next_word
         queue.append(next_word)
-        if next_word == "." or next_word == "。" or next_word == "？" or \
+        if next_word == "。" or next_word == "？" or \
            next_word == "♪" or next_word == "！":
             make_count += 1
             if make_count >= sentence_num:
@@ -74,7 +74,7 @@ if __name__ == "__main__":
         for i in f.read().splitlines():
             data += i
     # print(data)
-    word_model = make_model(data)
-    sentence = make_markov_sentence(word_model)
+    word_model = make_model(data, order=2)
+    sentence = make_markov_sentence(word_model, order=2, sentence_num=1)
     # print(word_model)
-    print(sentence)
+    print(sentence.replace("[BOS]", ""))

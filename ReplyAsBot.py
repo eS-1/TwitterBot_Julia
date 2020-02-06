@@ -1,7 +1,18 @@
 import fortune
 from config import myAPI
+from markov import make_model
+from markov import make_markov_sentence
 
 MY_ID = "k3bot_Julia"
+
+
+def reply_markov():
+    data = ""
+    with open("tweetTexts.txt", encoding="UTF-8") as f:
+        for i in f.read().splitlines():
+            data += i
+    word_model = make_model(data, order=2)
+    return make_markov_sentence(word_model, order=2, sentence_num=1)
 
 
 def replyAsBot():
@@ -34,7 +45,7 @@ def replyAsBot():
         elif "おみくじ" in text:
             reply_text += fortune.draw_fortune()
         else:
-            reply_text += "test"
+            reply_text += reply_markov()
 
         if str(status.in_reply_to_screen_name) == MY_ID and str(status.user.screen_name) != MY_ID and (not status.favorited):
             myAPI.create_favorite(status_id)
