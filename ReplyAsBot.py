@@ -45,7 +45,7 @@ def replyAsBot():
         elif "おみくじ" in text:
             reply_text += fortune.draw_fortune()
         else:
-            reply_text += reply_markov()
+            reply_text += "test"
 
         if str(status.in_reply_to_screen_name) == MY_ID and str(status.user.screen_name) != MY_ID and (not status.favorited):
             myAPI.create_favorite(status_id)
