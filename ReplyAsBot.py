@@ -11,7 +11,7 @@ def reply_markov():
     with open("tweetTexts.txt", encoding="UTF-8") as f:
         for i in f.read().splitlines():
             data += i
-    word_model = make_model(data, order=2)
+    word_model = make_model(data)
     return make_markov_sentence(word_model, order=2, sentence_num=1)
 
 
