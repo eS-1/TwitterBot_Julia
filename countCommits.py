@@ -63,15 +63,14 @@ def count_user_commits(user):
         yield repo
 
 
-if __name__ == "__main__":
-    user = "eS-1"
+def count_commits(user_name):
     total = 0
     c_today = 0
-    for repo in count_user_commits(user):
+    for repo in count_user_commits(user_name):
         total += repo["num_commits"]
         c_today += repo["num_commits_today"]
-    print("Total commits: {}".format(total))
-    print("Today commits: {}".format(c_today))
+    print("{}'s total commits: {}".format(user_name, total))
+    print("{}'s today commits: {}".format(user_name, c_today))
 
     tweet = "@eS1_tech 今日のcommitは{}回だ。".format(c_today)
     if c_today == 0:
@@ -80,3 +79,7 @@ if __name__ == "__main__":
         tweet += "今日もお疲れ様。"
 
     myAPI.update_status(tweet)
+
+
+if __name__ == "__main__":
+    count_commits("eS-1")
