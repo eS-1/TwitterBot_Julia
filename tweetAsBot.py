@@ -1,7 +1,6 @@
 import random
 import tweepy
 from config import myAPI
-from FollowBack import followBack
 
 
 def tweetAsBot():
@@ -24,5 +23,3 @@ def tweetAsBot():
 
 if __name__ == "__main__":
     tweetAsBot()
-
-    followBack()
